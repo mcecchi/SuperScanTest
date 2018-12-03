@@ -1,5 +1,7 @@
 import os
-os.environ['KIVY_GL_BACKEND'] = 'gl'
+import sys
+if sys.platform != "win32":
+    os.environ['KIVY_GL_BACKEND'] = 'gl'
 import subprocess
 import threading
 from kivy.event import EventDispatcher
