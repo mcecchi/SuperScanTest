@@ -1,3 +1,5 @@
+import os
+os.environ['KIVY_GL_BACKEND'] = 'gl'
 import subprocess
 import threading
 from kivy.event import EventDispatcher
@@ -9,7 +11,6 @@ class Shell(EventDispatcher):
         self.register_event_type('on_stderr')
         self.register_event_type('on_exit')
         super(Shell, self).__init__(**kwargs)
-        self.proc = None
 
     def on_stdout(self, line):
         print('STDOUT: {}'.format(line))
@@ -38,5 +39,7 @@ class Shell(EventDispatcher):
             self.dispatch('on_stderr', line)
 
     def stop(self):
-        if self.proc is not None:
+        try:
             self.proc.kill()
+        except:
+            pass

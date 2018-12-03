@@ -1,5 +1,6 @@
-import sys
 import os
+os.environ['KIVY_NO_ARGS'] = '1'
+import sys
 import getopt
 import subprocess
 import time
@@ -121,8 +122,8 @@ if __name__ == '__main__':
     try:
         opts, _ = getopt.getopt(sys.argv[1:], 'do:', ['use_dummy', 'output='])
     except getopt.GetoptError:
-        print('Usage: python {} [-- [[-d]|[--use_dummy]]'
-              '[[-o <file>]|[--output=<file>]]]'.format(sys.argv[0]))
+        print('Usage: python {} [[-d]|[--use_dummy]]'
+              '[[-o <file>]|[--output=<file>]]'.format(sys.argv[0]))
         sys.exit()
     use_dummy = False
     filename = None
