@@ -1,0 +1,23 @@
+<TestRoot>:
+    orientation: 'vertical'
+    BoxLayout:
+        size_hint: 1, 0.2
+        orientation: 'horizontal'
+        Button:
+            id: quit
+            text: 'QUIT'
+        ToggleButton:
+            id: scan
+            text: 'SCAN' if self.state == 'normal' else 'CANCEL'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: '8dp'
+        padding: '8dp'
+        Label:
+            text: '{}%'.format(int(pb.value))
+            size_hint_y: None
+            height: '48dp'
+        ProgressBar:
+            id: pb
+            size_hint_y: None
+            height: '48dp'
